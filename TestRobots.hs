@@ -13,13 +13,13 @@ main =
 	do
 
 
-		-- test folding function function 
+		-- test components of the folding function
 		-- Rotation functions
 		print ((foldEachRobot 2 3 [] (Robot (Position 0 0) N OK) [L]) == (Robot (Position 0 0) W OK))
 		print ((foldEachRobot 2 3 [] (Robot (Position 0 0) N OK) [L,L]) == (Robot (Position 0 0) S OK))
 		print ((foldEachRobot 2 3 [] (Robot (Position 0 0) N OK) [L,L,L]) == (Robot (Position 0 0) E OK))
 		print ((foldEachRobot 2 3 [] (Robot (Position 0 0) N OK) [L,L,L,L]) == (Robot (Position 0 0) N OK))
-		print ((foldEachRobot 2 3 [] (Robot (Position 0 0) N OK) [L,L,L]) == (Robot (Position 0 0) E OK))
+		print ((foldEachRobot 2 3 [] (Robot (Position 0 0) N OK) [R]) == (Robot (Position 0 0) E OK))
 		print ((foldEachRobot 2 3 [] (Robot (Position 0 0) N OK) [R,R]) == (Robot (Position 0 0) S OK))
 		print ((foldEachRobot 2 3 [] (Robot (Position 0 0) N OK) [R,R,R]) == (Robot (Position 0 0) W OK))
 		print ((foldEachRobot 2 3 [] (Robot (Position 0 0) N OK) [R,R,R,R]) == (Robot (Position 0 0) N OK))
