@@ -84,7 +84,7 @@ foldEachRobot maxX maxY scent = foldl (\acc command -> makeMove maxX maxY scent 
 --each tuple is a Robot initial state - and a list of commands
 --the other complexity is the scent list of positions - this is produced by using the intermediate list of Robot final states, choosing those that are lost 
 -- and then extracting the Positions from them  - this is done by stripScent
--- note that because HAskell is lasy - this parameter is only evaluated when it is used - so this is much more efficient that it looks!
+-- note that because Haskell is lasy - this parameter is only evaluated when it is used - so this is much more efficient that it looks!
 multiRobotFold :: Integer->Integer->[(Robot,[Command])]->[Robot]
 multiRobotFold maxX maxY = foldl (\acc (r,cmd) -> acc ++ [foldEachRobot maxX maxY (stripScent acc) r cmd ] ) []
 
