@@ -28,7 +28,6 @@ main = do
    putStr $toStringResults results
 
 
---- Actually like the Haskell Show default better myself - but best to give the customer what they asked for!
 parseRobots :: [String] -> [(Robot,[Command])]
 parseRobots [] = []
 parseRobots (x:y:d:cmd:xs) = [ (Robot (Position (read x ::Integer) (read y ::Integer ) ) (txt2dir d)  OK , (map txt2cmd cmd)) ] ++ parseRobots xs
@@ -45,6 +44,7 @@ parseRobots (x:y:d:cmd:xs) = [ (Robot (Position (read x ::Integer) (read y ::Int
 	         | x == 'R' = R
 		 | x == 'L' = L
 
+--- Actually like the Haskell Show default better myself - but best to give the customer what they asked for!
 toStringResults :: [Robot] -> String
 toStringResults list = foldl (\acc x -> acc ++  (toStringOneRobot x) ++ "\n") [] list
    where
