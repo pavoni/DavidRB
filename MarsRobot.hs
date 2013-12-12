@@ -58,7 +58,7 @@ execCommand r c
 
 
 -- makeMove will return the new robot state
--- lookat the new position and see if it drops off the world
+-- loo kat the new position and see if it drops off the world
 -- if it does check whether there is a scent from a previous robot that would prevent ths loss
 -- Parameters are Max x dim, Max y dim, Scent (list of Positions) old Robot state, proposed Robot statate
 
@@ -75,7 +75,7 @@ makeMove maxX maxY scent ro@(Robot roP roO roL) rn@(Robot (Position rnX rnY) rnO
 
 
 -- foldEachRobot will take a command list for each robot and execute them producing a single final Robot state
--- Parameters are initial Max x dim, max y dim, scent list, initial Robot state
+-- Parameters are initial max x dim, max y dim, scent list, initial Robot state
 foldEachRobot :: Integer->Integer->[Position]->Robot->[Command]->Robot
 foldEachRobot maxX maxY scent = foldl (\acc command -> makeMove maxX maxY scent acc (execCommand acc command))
 
@@ -84,7 +84,7 @@ foldEachRobot maxX maxY scent = foldl (\acc command -> makeMove maxX maxY scent 
 --each tuple is a Robot initial state - and a list of commands
 --the other complexity is the scent list of positions - this is produced by using the intermediate list of Robot final states, choosing those that are lost 
 -- and then extracting the Positions from them  - this is done by stripScent
--- note that because HAskell is lasy - this parameter is only evaluated when it is used - so this is much more effieicnet that it looks!
+-- note that because HAskell is lasy - this parameter is only evaluated when it is used - so this is much more efficient that it looks!
 multiRobotFold :: Integer->Integer->[(Robot,[Command])]->[Robot]
 multiRobotFold maxX maxY = foldl (\acc (r,cmd) -> acc ++ [foldEachRobot maxX maxY (stripScent acc) r cmd ] ) []
 
