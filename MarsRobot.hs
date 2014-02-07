@@ -1,4 +1,4 @@
--- Red Badger - Mars Robot exercise
+-- Red Badger  - Mars Robot exercise
 -- Greg Dowling - mail@gregdowling.com - May 2013
 -- Haskell implentation
 
