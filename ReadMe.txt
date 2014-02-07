@@ -1,6 +1,5 @@
 Have attached my solution as a zip.
 
-
 I took you at your word – and wrote in in the language I’m currently learning – Haskell. 
 
 I’ve included compiled executables (one of the main programme, one of the test ) which I think are stand alone – so should be easy to run.
