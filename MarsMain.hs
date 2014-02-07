@@ -7,6 +7,7 @@
 -- Always the least attractive bit of a Haskell program!
 
 import System.IO
+
 import Data.List
 import MarsRobot
 
