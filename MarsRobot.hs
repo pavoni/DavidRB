@@ -58,7 +58,7 @@ execCommand r c
 
 
 -- makeMove will return the new robot state
--- loo kat the new position and see if it drops off the world
+-- look at the new position and see if it drops off the world
 -- if it does check whether there is a scent from a previous robot that would prevent ths loss
 -- Parameters are Max x dim, Max y dim, Scent (list of Positions) old Robot state, proposed Robot statate
 
