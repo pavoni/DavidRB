@@ -60,7 +60,7 @@ execCommand r c
 -- makeMove will return the new robot state
 -- look at the new position and see if it drops off the world
 -- if it does check whether there is a scent from a previous robot that would prevent ths loss
--- Parameters are Max x dim, Max y dim, Scent (list of Positions) old Robot state, proposed Robot statate
+-- Parameters are Max x dim, Max y dim, Scent (list of Positions) old Robot state, proposed Robot state
 
 makeMove :: Integer->Integer->[Position]-> Robot -> Robot -> Robot
 makeMove maxX maxY scent ro@(Robot roP roO roL) rn@(Robot (Position rnX rnY) rnO rnL)
