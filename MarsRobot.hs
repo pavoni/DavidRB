@@ -68,7 +68,7 @@ makeMove maxX maxY scent ro@(Robot roP roO roL) rn@(Robot (Position rnX rnY) rnO
    | roL == Lost = ro
 -- Is Robot still in the bounded world? - if so return the new state
    | rnX >= 0 && rnY >= 0 && rnX <= maxX && rnY <= maxY = rn
--- So Robot is out of the bounded world - is it protected by a Scent - if so return old position
+-- So Robot is out of the bounded world - is it protected by a Scent? - if so return old position
    | (find (== roP) scent) /= Nothing = ro
 -- Otherise - we just fell off the world - return the old position - but change the Lost value
    | otherwise = Robot roP roO Lost
@@ -79,12 +79,12 @@ makeMove maxX maxY scent ro@(Robot roP roO roL) rn@(Robot (Position rnX rnY) rnO
 foldEachRobot :: Integer->Integer->[Position]->Robot->[Command]->Robot
 foldEachRobot maxX maxY scent = foldl (\acc command -> makeMove maxX maxY scent acc (execCommand acc command))
 
---multiRobotFold looks complex but isn't!
---Parameter are Max co-ords as before and a list of tuples - one for each Robot
---each tuple is a Robot initial state - and a list of commands
---the other complexity is the scent list of positions - this is produced by using the intermediate list of Robot final states, choosing those that are lost 
+-- multiRobotFold looks complex but isn't!
+-- Parameter are Max co-ords as before and a list of tuples - one for each Robot
+-- each tuple is a Robot initial state - and a list of commands
+-- the other complexity is the scent list of positions - this is produced by using the intermediate list of Robot final states, choosing those that are lost 
 -- and then extracting the Positions from them  - this is done by stripScent
--- note that because Haskell is lasy - this parameter is only evaluated when it is used - so this is much more efficient that it looks!
+-- note that because Haskell is lazy - this parameter is only evaluated when it is used - so this is much more efficient that it looks!
 multiRobotFold :: Integer->Integer->[(Robot,[Command])]->[Robot]
 multiRobotFold maxX maxY = foldl (\acc (r,cmd) -> acc ++ [foldEachRobot maxX maxY (stripScent acc) r cmd ] ) []
 
